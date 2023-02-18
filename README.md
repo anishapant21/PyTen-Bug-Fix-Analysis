@@ -1,1 +1,178 @@
-# PyTen-Bug-Fix-Analysis
+# Issues Analysis Of Pytorch And Tensorflow For Comparing Bug Fixing Process
+
+
+## 1. Introduction
+
+A bug is an error, flaw, or fault in software code that causes it to behave unexpectedly or produce incorrect results. Debugging is the process of identifying and correcting these errors in the code. GitHub, a popular hosting service for version control systems called git, provides a tool called GitHub issues that helps manage collaborative projects and track progress. It allows you to create descriptions of tasks, bugs, changes, and updates for systematic tracking and addressing. This project explores the use of GitHub issues to analyze the bug-fixing process of two open-source machine learning frameworks: PyTorch and TensorFlow.
+
+## 2. Development 
+
+### 2.1 Extracting Issues from 
+
+GitHub Repository
+GitHub provides an API that can be used to interact with GitHub. It allows you to create and manage repositories, branches, issues, pull requests fetching publicly available data, and many more. This project utilizes the GitHub API to extract issue data from the repository of Pytorch and TensorFlow. The API, however, only gives 100 issues per page at max and it is therefore required to handle the pagination problem while fetching the issue data. For this, the issue end page was determined from the webpage of individual repositories and a simple for loop was used until the end of the issues data.
+
+```
+def handle_pagination(api_link, total_pages=100):
+    data = []
+    for i in tqdm(range(1, total_pages+1)):
+        data.extend(get_data(api_link, i))
+    return data
+```
+
+Pytorch repository has about **31503** issues as of February 15, 2023. Out of this, **21175** are closed issues and **10328** are open. When fetching data through GitHub's API, the API also gives the pull request data alongside the issues data. 
+
+The closed issues were extracted and the pull request data was filtered out. After this, the issues closed within the last two years were selected using Pandas.
+
+Total # of closed issues given by GitHub API (with pull request): **83769**
+Total # of closed issues (without pull request data): **21175**
+Total # of closed issues since last two years (>=2021-02-15): **8272**
+
+Same processes were followed for extracting tensorflow issues data.
+Total # of closed issues given by GitHub API (with pull request): **56989**
+Total # of closed issues (without pull request data): **34629**
+Total # of closed issues since last two years (>=2021-02-15): **8223**
+
+**LINK TO SAMPLE DATA JSON**
+
+
+
+### 2.2 Metrics
+
+GitHub issues have various data categories that include metrics such as issue open, close and updated date, number of comments on issues, issues reopened cases, number of commits, milestones, reactions, bug density, timeline events, labels, author association, etc. 
+
+```
+['url',
+ 'repository_url',
+ 'labels_url',
+ 'comments_url',
+ 'events_url',
+ 'html_url',
+ 'id',
+ 'node_id',
+ 'number',
+ 'title',
+ 'user',
+ 'labels',
+ 'state',
+ 'locked',
+ 'assignee',
+ 'assignees',
+ 'milestone',
+ 'comments',
+ 'created_at',
+ 'updated_at',
+ 'closed_at',
+ 'author_association',
+ 'active_lock_reason',
+ 'body',
+ 'reactions',
+ 'timeline_url',
+ 'performed_via_github_app',
+ 'state_reason',
+ 'draft',
+ 'pull_request']
+```
+
+The following metrics have been chosen for bug fixing process analysis of the two GitHub projects (Pytorch and Tensorflow):
+
+![image](https://user-images.githubusercontent.com/44058515/219898889-b3398f3a-337f-4de4-8edd-1d28c8076a45.png)
+
+
+**LINK TO PYTORCH CSV DATASET:
+LINK TO TENSORFLOW CSV DATASET:**
+
+#### 2.2.1 Mean Time to Fix (MTTF)
+
+Time of fix, as the name implies, is the total time in days taken to fix an issue. It is calculated by subtracting the issue open date from the issue closed date. 
+
+```MTTF (in days) = closed_date - opened_date```
+
+The time of fix metric is highly relevant to the bug fixing process as it provides information about the timeline involved in fixing a bug, and informs about the severity of the bugs and other hidden bugs within the bug. Its analysis reveals information about the efficiency of solving a bug and could help with delayed releases, freeing up resources (developers, testers and equipment) and flawed releases.
+
+
+#### 2.2.2 Issue Labels (Labels)
+
+Labels are ways for categorizing issues, pull requests, and discussions provided by GitHub. Some of the default labels that GitHub provides are bug, documentation, duplicate, enhancement, good first issue, help wanted, invalid, question and won't fix. Any new issue will have at least one label on them. GitHub labels can help streamline the bug-fixing process by providing a clear and organized way to categorize and prioritize issues, track progress, and ensure that bugs are addressed in a timely and efficient manner.
+
+For this analysis, the labels assigned to issues on creation are taken into consideration. The labels data category from GitHub can have a list of multiple labels within them, from which the label assigned on creation (the first label on the list) is extracted using the "name" key from the dataset.
+
+```
+"labels": [
+            {
+                "id": 284443156,
+                "node_id": "MDU6TGFiZWwyODQ0NDMxNTY=",
+                "url": "https://api.github.com/repos/tensorflow/tensorflow/labels/type:docs-bug",
+                "name": "type:docs-bug",
+                "color": "159b2e",
+                "default": false,
+                "description": "Document issues"
+            }
+        ]
+```
+
+### 2.2.3 Number of Issue Comments (Comments)
+
+The number of issue comments in GitHub can be an indicator of the level of activity, priority and progress in the bug-fixing process.**[Panjer et al. [17]]** A large number of personal interests (large star count  or lots of comments) in a bug is an indication of bug popularity and may impact bug ﬁxing time. **[Comparison of Seven Bug Report Types: A Case-study of Google Chrome Browser Project]** has found that bugs having less than four comments (less discussion) get ﬁxed faster as compared to other bugs. 
+
+### 2.2.4 Author Association (AuthorA)
+
+Author association on GitHub describes the connection between a user who submitted an issue and their level of involvement with the repository where the issue was submitted. The authors of the issues extracted from Pytorch and Tensorflow are Collaborators, contributors, members, and none. 
+MEMBER: The user is a member of the organization that owns the repository
+CONTRIBUTOR: The user has contributed to the repository by opening an issue, creating a pull request, or commenting on an issue or pull request.
+COLLABORATOR: The user has been given push access to the repository.
+NONE: The user has no association with the repository.
+
+The author associated with an issue in GitHub can play a role in determining the priority of issue fixing. Issues created by COLLABORATORs, MEMBERs, or OWNERs of a repository may be given higher priority because these users are typically more closely involved with the project and may have a better understanding of its overall goals and priorities.
+
+
+#### 2.2.5 Number of Positive Reactions (Reactions)
+
+The number of positive reactions (such as "thumbs up" or "heart" reactions) on GitHub issues can be a useful way to gauge the level of interest, engagement, and feedback from users, which can help guide developers in their efforts to fix bugs. [Beyond Textual Issues: Understanding the Usage and Impact of GitHub Reactions] research showed that bugs and enhancements with at least two reactions take more time to be closely compared to the ones without reactions. They hypothesize that they are more complex and require more time from developers to be resolved.
+
+In highlighting the importance of positive reactions in the bug-fixing process, the positive reaction (having a key value of "+1") is extracted from the reaction category of the dataset.
+
+```
+"reactions": {
+            "url": "https://api.github.com/repos/tensorflow/tensorflow/issues/5/reactions",
+            "total_count": 98,
+            "+1": 88,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 10,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+        }
+```
+
+## 3. How to run your code?
+```
+virtualenv env
+pip3 install -r requirement.txt 
+python extract_data.py
+jupyter-notebook data_analysis.ipynb
+```
+
+## 4. Findings
+
+### 4.1 Exploratory Analysis (Data)
+
+| Comparison Parameters                           | PyTorch      | TensorFlow             |
+|-------------------------------------------------|--------------|------------------------|
+| Total Number of Issues Closed in Last Two Years | 8223         | 8272                   |
+| Major Author Source of Issues                   | "None"       | "None"                 |
+| Average Fix time per issue                      | 296 days     | 155 days               |
+| Average Comments Per Issue                      | 7.61         | 3.88                   |
+| Average Reaction Per Issue                      | 0.54         | 0.45                   |
+| Total Comments over two years                   | 62597        | 32136                  |
+| Total Reactions over two years                  | 4482         | 3754                   |
+| Author Association for Least Number of Issues   | Collaborator | Member                 |
+| Most used labels                                | triaged      | stat:awaiting response |
+
+### 4.2 Exploratory Analysis (Graph)
+
+### 4.2.1 
+
+
