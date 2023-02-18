@@ -1,0 +1,6 @@
+data/raw_pytorch.json
+data/raw_tensorflow.json
+data/raw_pytorch.pkl
+data/raw_tensorflow.pkl
+data/pytorch.pkl
+data/tensorflow.pkl
