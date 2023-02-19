@@ -33,7 +33,7 @@ Total # of closed issues given by GitHub API (with pull request): **56989**
 Total # of closed issues (without pull request data): **34629**
 Total # of closed issues since last two years (>=2021-02-15): **8223**
 
-**LINK TO SAMPLE DATA JSON**
+Click [here](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/data/sample.json) for sample json data.
 
 
 
@@ -79,8 +79,8 @@ The following metrics have been chosen for bug fixing process analysis of the tw
 ![image](https://user-images.githubusercontent.com/44058515/219898889-b3398f3a-337f-4de4-8edd-1d28c8076a45.png)
 
 
-**LINK TO PYTORCH CSV DATASET:
-LINK TO TENSORFLOW CSV DATASET:**
+[PyTorch CSV dataset](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/data/pytorch.csv) <br />
+[TensorFlow CSV dataset](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/data/tensorflow.csv)
 
 #### 2.2.1 Mean Time to Fix (MTTF)
 
@@ -113,22 +113,22 @@ For this analysis, the labels assigned to issues on creation are taken into cons
 
 ### 2.2.3 Number of Issue Comments (Comments)
 
-The number of issue comments in GitHub can be an indicator of the level of activity, priority and progress in the bug-fixing process.**[Panjer et al. [17]]** A large number of personal interests (large star count  or lots of comments) in a bug is an indication of bug popularity and may impact bug ﬁxing time. **[Comparison of Seven Bug Report Types: A Case-study of Google Chrome Browser Project]** has found that bugs having less than four comments (less discussion) get ﬁxed faster as compared to other bugs. 
+The number of issue comments in GitHub can be an indicator of the level of activity, priority and progress in the bug-fixing process. A large number of personal interests (large star count  or lots of comments) in a bug is an indication of bug popularity and may impact bug ﬁxing time. **[[4](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/edit/main/README.md#5-references)]** has found that bugs having less than four comments (less discussion) get ﬁxed faster as compared to other bugs. 
 
 ### 2.2.4 Author Association (AuthorA)
 
-Author association on GitHub describes the connection between a user who submitted an issue and their level of involvement with the repository where the issue was submitted. The authors of the issues extracted from Pytorch and Tensorflow are Collaborators, contributors, members, and none. 
-MEMBER: The user is a member of the organization that owns the repository
-CONTRIBUTOR: The user has contributed to the repository by opening an issue, creating a pull request, or commenting on an issue or pull request.
-COLLABORATOR: The user has been given push access to the repository.
-NONE: The user has no association with the repository.
+Author association on GitHub describes the connection between a user who submitted an issue and their level of involvement with the repository where the issue was submitted. The authors of the issues extracted from Pytorch and Tensorflow are Collaborators, contributors, members, and none. <br/>
+MEMBER: The user is a member of the organization that owns the repository <br/>
+CONTRIBUTOR: The user has contributed to the repository by opening an issue, creating a pull request, or commenting on an issue or pull request. <br/>
+COLLABORATOR: The user has been given push access to the repository. <br/>
+NONE: The user has no association with the repository. <br/>
 
 The author associated with an issue in GitHub can play a role in determining the priority of issue fixing. Issues created by COLLABORATORs, MEMBERs, or OWNERs of a repository may be given higher priority because these users are typically more closely involved with the project and may have a better understanding of its overall goals and priorities.
 
 
 #### 2.2.5 Number of Positive Reactions (Reactions)
 
-The number of positive reactions (such as "thumbs up" or "heart" reactions) on GitHub issues can be a useful way to gauge the level of interest, engagement, and feedback from users, which can help guide developers in their efforts to fix bugs. [Beyond Textual Issues: Understanding the Usage and Impact of GitHub Reactions] research showed that bugs and enhancements with at least two reactions take more time to be closely compared to the ones without reactions. They hypothesize that they are more complex and require more time from developers to be resolved.
+The number of positive reactions (such as "thumbs up" or "heart" reactions) on GitHub issues can be a useful way to gauge the level of interest, engagement, and feedback from users, which can help guide developers in their efforts to fix bugs. **[[3](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/edit/main/README.md#5-references)]** research showed that bugs and enhancements with at least two reactions take more time to be closely compared to the ones without reactions. They hypothesize that they are more complex and require more time from developers to be resolved.
 
 In highlighting the importance of positive reactions in the bug-fixing process, the positive reaction (having a key value of "+1") is extracted from the reaction category of the dataset.
 
@@ -195,16 +195,16 @@ The graph of Mean Time to Fix (MTTF) against the issue open date was also plotte
 
 Most of the issues originate from independent GitHub users for both TensorFlow and PyTorch. The least number of issues reported on GitHub for PyTorch is associated with Member users, and for TensorFlow is Collaborator. 
 
-Average value for MTTF for NONE: 
-Average value for MTTF for CONTRIBUTOR:
-Average value for MTTF for COLLABORATOR:
-Average value for MTTF for MEMBER:
+Average value for MTTF for NONE:  <br/>
+Average value for MTTF for CONTRIBUTOR: <br/>
+Average value for MTTF for COLLABORATOR: <br/>
+Average value for MTTF for MEMBER: <br/>
 
-Similarly, for TensorFlow,
-Average value for MTTF for NONE: 
-Average value for MTTF for CONTRIBUTOR:
-Average value for MTTF for COLLABORATOR:
-Average value for MTTF for MEMBER:
+Similarly, for TensorFlow, <br/>
+Average value for MTTF for NONE: <br/>
+Average value for MTTF for CONTRIBUTOR: <br/>
+Average value for MTTF for COLLABORATOR: <br/>
+Average value for MTTF for MEMBER: <br/>
 
 It can be inferred from the data that issues originated from Member and  collaborator are given high precedence in both the projects and therefore have a shorter time to fix.
 
@@ -221,8 +221,37 @@ The bar plot of labels of the issues reveals that PyTorch encountered and resolv
 ### 3.2.4 Comparison Through Number of Comments and Number of Positive Reactions on the Issues
 
 
+Comments             | Positive Reactions
+:-------------------------:|:-------------------------:
+![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/density_comments.png)  |  ![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/density_reactions.png)
+
+PyTorch             |  TensorFlow
+:-------------------------:|:-------------------------:
+![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/comm_pt.png)  |  ![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/comm_tf.png)
+
+PyTorch             |  TensorFlow
+:-------------------------:|:-------------------------:
+![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/react_pt.png)  |  ![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/react_tf.png)
+
+A graph of MTTF Vs. Number of Comments shows that, for both projects, as the number of comments increases on a particular issue, the time taken to fix that issue significantly decreases. It may be due to the fact that a more popular issue, assessed by the number of comments,  gets more exposure by developers and signifies precedence of the issue. The graph of MTTF Vs. Positive Reactions also corroborate this trend. However, it should be noted that more comments (or reactions) don't always mean the issue is important or will have a shorter fix time. Many issues with a number of comments less than 20 also have a lower fix time.
 
 
 
+## 4. How to run your code
+```
+virtualenv env
+pip3 install -r requirement.txt 
+python extract_data.py
+jupyter-notebook data_analysis.ipynb
+```
 
+## 5. REFERENCES
+
+1. https://www.linkedin.com/pulse/time-fix-defects-ivan-luizio-magalh%C3%A3es
+2. Empirical Analysis of the Bug Fixing Process in Open Source Projects
+3. Beyond Textual Issues: Understanding the Usage and Impact of GitHub Reactions
+4. Comparison of Seven Bug Report Types: A Case-study of Google Chrome Browser Project
+5. An Empirical Study on Bugs inside TensorFlow
+6. Predicting eclipse bug lifetimes
+7. Performance Assessment of Bug Fixing Process in Open Source
 
