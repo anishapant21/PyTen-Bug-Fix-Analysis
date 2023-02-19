@@ -195,16 +195,17 @@ The graph of Mean Time to Fix (MTTF) against the issue open date was also plotte
 
 Most of the issues originate from independent GitHub users for both TensorFlow and PyTorch. The least number of issues reported on GitHub for PyTorch is associated with Member users, and for TensorFlow is Collaborator. 
 
-Average value for MTTF for NONE:  <br/>
-Average value for MTTF for CONTRIBUTOR: <br/>
-Average value for MTTF for COLLABORATOR: <br/>
-Average value for MTTF for MEMBER: <br/>
+Average value for MTTF for NONE: **153 Days**  <br/>
+Average value for MTTF for CONTRIBUTOR: **164 Days**
+ <br/>
+Average value for MTTF for COLLABORATOR: **136 Days** <br/>
+Average value for MTTF for MEMBER: **140 Days**  <br/>
 
 Similarly, for TensorFlow, <br/>
-Average value for MTTF for NONE: <br/>
-Average value for MTTF for CONTRIBUTOR: <br/>
-Average value for MTTF for COLLABORATOR: <br/>
-Average value for MTTF for MEMBER: <br/>
+Average value for MTTF for NONE: **275 Days** <br/>
+Average value for MTTF for CONTRIBUTOR: **455 Days** <br/>
+Average value for MTTF for COLLABORATOR: **390 Days** <br/>
+Average value for MTTF for MEMBER: **410 Days** <br/>
 
 It can be inferred from the data that issues originated from Member and  collaborator are given high precedence in both the projects and therefore have a shorter time to fix.
 
