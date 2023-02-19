@@ -217,7 +217,7 @@ PyTorch             |  TensorFlow
 :-------------------------:|:-------------------------:
 ![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/dist_gra_labels_pt.png)  |  ![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/dist_gra_labels_tf.png)
 
-The bar plot of labels of the issues reveals that PyTorch encountered and resolved 10 severity bugs in the system. The severity of the bugs directly correlates with the time of fixing the bug. 
+ The bar plot of labels of the issues reveals that PyTorch encountered and resolved 10 severity bugs in the system. The severity of the bugs directly correlates with the time of fixing the bug: the higher the severity, the more time is required for the bug to be fixed. It may be because of the intensity of the testing involved in the process. PyTorch uses a label called “high priority” to indicate the priority of the issues. In the case of TensorFlow, however, the higher the severity the lesser the time required to solve them. It implies that TensorFlow is more efficient with its high-severity bug fixes than PyTorch.
 
 ### 3.2.4 Comparison Through Number of Comments and Number of Positive Reactions on the Issues
 
