@@ -147,17 +147,9 @@ In highlighting the importance of positive reactions in the bug-fixing process, 
         }
 ```
 
-## 3. How to run your code?
-```
-virtualenv env
-pip3 install -r requirement.txt 
-python extract_data.py
-jupyter-notebook data_analysis.ipynb
-```
+## 3. Findings
 
-## 4. Findings
-
-### 4.1 Exploratory Analysis (Data)
+### 3.1 Exploratory Analysis (Data)
 
 | Comparison Parameters                           | PyTorch      | TensorFlow             |
 |-------------------------------------------------|--------------|------------------------|
@@ -169,10 +161,32 @@ jupyter-notebook data_analysis.ipynb
 | Total Comments over two years                   | 62597        | 32136                  |
 | Total Reactions over two years                  | 4482         | 3754                   |
 | Author Association for Least Number of Issues   | Collaborator | Member                 |
-| Most used labels                                | triaged      | stat:awaiting response |
+| Most used labels                                | high priority      | stat:awaiting response |
 
-### 4.2 Exploratory Analysis (Graph)
+### 3.2 Exploratory Analysis (Graph)
 
-### 4.2.1 
+### 3.2.1 Comparison Through MTTF of the Issues 
+
+PyTorch             |  TensorFlow
+:-------------------------:|:-------------------------:
+![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/data_distribution_MTTF_pt.png)  |  ![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/data_distribution_MTTF_tf.png)
+
+![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/sample_distribution_MTTF_both.png)
+
+A graphical analysis of the distribution of the mean time to fix the issues of both the PyTorch and TensorFlow repositories shows that most of the issues were closed below the 200 days mark. The number of issues opened between the 250 and 1000 days was marginally higher for TensorFlow in comparison to PyTorch. Similarly, from the normal distribution graph of the data, it can be inferred that only 0.3% of issues took more than 1500 days to be fixed for both projects.
+
+PyTorch             |  TensorFlow
+:-------------------------:|:-------------------------:
+![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/MTTF_closed_pytorch.png)  |  ![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/MTTF_closed_tensorflow.png)
+
+
+Another graphical analysis done was that of the trend of the issue closing trend. For this, the cumulated issues over time were plotted against the closing date of the issues. At the beginning of 2021, the number of issues solved was higher for TensorFlow than PyTorch. But over time, PyTorch had a steep rise in the bugs reported while TensorFlow had a steady rise in the number of bugs, thus resulting in almost the same number of bugs at the beginning of 2023.  Furthermore, both projects have a smooth curve implying that the bug-fixing process is continuous for both projects.
+
+PyTorch             |  TensorFlow
+:-------------------------:|:-------------------------:
+![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/MTTF_created_pytorch.png)  |  ![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/MTTF_created_tensorflow.png)
+
+The graph of Mean Time to Fix (MTTF) against the issue open date was also plotted to analyze the efficiency of the bug-fixing process. The above scatter plots clearly show that both the PyTorch and the TensorFlow projects have backlogs of unresolved issues ( and finally solved within the last two years), dating back to 2017 and 2016 respectively. The MTTF value for issues opened within the last two years is less than previous issues (recent issues are fixed in lesser time than previous issues) and shows a continuously improving efficiency over the years. This is true for both projects.
+
 
 
