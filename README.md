@@ -189,4 +189,40 @@ PyTorch             |  TensorFlow
 The graph of Mean Time to Fix (MTTF) against the issue open date was also plotted to analyze the efficiency of the bug-fixing process. The above scatter plots clearly show that both the PyTorch and the TensorFlow projects have backlogs of unresolved issues ( and finally solved within the last two years), dating back to 2017 and 2016 respectively. The MTTF value for issues opened within the last two years is less than previous issues (recent issues are fixed in lesser time than previous issues) and shows a continuously improving efficiency over the years. This is true for both projects.
 
 
+### 3.2.2 Comparison Through Author Association Distribution
+
+![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/disrt_AA_pt.png)
+
+Most of the issues originate from independent GitHub users for both TensorFlow and PyTorch. The least number of issues reported on GitHub for PyTorch is associated with Member users, and for TensorFlow is Collaborator. 
+
+Average value for MTTF for NONE: 
+Average value for MTTF for CONTRIBUTOR:
+Average value for MTTF for COLLABORATOR:
+Average value for MTTF for MEMBER:
+
+Similarly, for TensorFlow,
+Average value for MTTF for NONE: 
+Average value for MTTF for CONTRIBUTOR:
+Average value for MTTF for COLLABORATOR:
+Average value for MTTF for MEMBER:
+
+It can be inferred from the data that issues originated from Member and  collaborator are given high precedence in both the projects and therefore have a shorter time to fix.
+
+
+### 3.2.3 Comparison Through Issues Labels
+
+
+PyTorch             |  TensorFlow
+:-------------------------:|:-------------------------:
+![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/dist_gra_labels_pt.png)  |  ![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/dist_gra_labels_tf.png)
+
+The bar plot of labels of the issues reveals that PyTorch encountered and resolved 10 severity bugs in the system. The severity of the bugs directly correlates with the time of fixing the bug. 
+
+### 3.2.4 Comparison Through Number of Comments and Number of Positive Reactions on the Issues
+
+
+
+
+
+
 
