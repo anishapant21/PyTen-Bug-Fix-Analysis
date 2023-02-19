@@ -7,9 +7,7 @@ A bug is an error, flaw, or fault in software code that causes it to behave unex
 
 ## 2. Development 
 
-### 2.1 Extracting Issues from 
-
-GitHub Repository
+### 2.1 Extracting Issues from GitHub Repository
 GitHub provides an API that can be used to interact with GitHub. It allows you to create and manage repositories, branches, issues, pull requests fetching publicly available data, and many more. This project utilizes the GitHub API to extract issue data from the repository of Pytorch and TensorFlow. The API, however, only gives 100 issues per page at max and it is therefore required to handle the pagination problem while fetching the issue data. For this, the issue end page was determined from the webpage of individual repositories and a simple for loop was used until the end of the issues data.
 
 ```
@@ -111,11 +109,11 @@ For this analysis, the labels assigned to issues on creation are taken into cons
         ]
 ```
 
-### 2.2.3 Number of Issue Comments (Comments)
+#### 2.2.3 Number of Issue Comments (Comments)
 
 The number of issue comments in GitHub can be an indicator of the level of activity, priority and progress in the bug-fixing process. A large number of personal interests (large star count  or lots of comments) in a bug is an indication of bug popularity and may impact bug ﬁxing time. **[[4](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/edit/main/README.md#5-references)]** has found that bugs having less than four comments (less discussion) get ﬁxed faster as compared to other bugs. 
 
-### 2.2.4 Author Association (AuthorA)
+#### 2.2.4 Author Association (AuthorA)
 
 Author association on GitHub describes the connection between a user who submitted an issue and their level of involvement with the repository where the issue was submitted. The authors of the issues extracted from Pytorch and Tensorflow are Collaborators, contributors, members, and none. <br/>
 MEMBER: The user is a member of the organization that owns the repository <br/>
@@ -154,18 +152,20 @@ In highlighting the importance of positive reactions in the bug-fixing process, 
 | Comparison Parameters                           | PyTorch      | TensorFlow             |
 |-------------------------------------------------|--------------|------------------------|
 | Total Number of Issues Closed in Last Two Years | 8223         | 8272                   |
-| Major Author Source of Issues                   | "None"       | "None"                 |
 | Average Fix time per issue                      | 296 days     | 155 days               |
 | Average Comments Per Issue                      | 7.61         | 3.88                   |
 | Average Reaction Per Issue                      | 0.54         | 0.45                   |
 | Total Comments over two years                   | 62597        | 32136                  |
 | Total Reactions over two years                  | 4482         | 3754                   |
 | Author Association for Least Number of Issues   | Collaborator | Member                 |
+| Author Association for Least Number of Issues   | None*        | None*                 |
 | Most used labels                                | high priority      | stat:awaiting response |
+
+*: None implies independent github user
 
 ### 3.2 Exploratory Analysis (Graph)
 
-### 3.2.1 Comparison Through MTTF of the Issues 
+#### 3.2.1 Comparison Through MTTF of the Issues 
 
 PyTorch             |  TensorFlow
 :-------------------------:|:-------------------------:
@@ -189,7 +189,7 @@ PyTorch             |  TensorFlow
 The graph of Mean Time to Fix (MTTF) against the issue open date was also plotted to analyze the efficiency of the bug-fixing process. The above scatter plots clearly show that both the PyTorch and the TensorFlow projects have backlogs of unresolved issues ( and finally solved within the last two years), dating back to 2017 and 2016 respectively. The MTTF value for issues opened within the last two years is less than previous issues (recent issues are fixed in lesser time than previous issues) and shows a continuously improving efficiency over the years. This is true for both projects.
 
 
-### 3.2.2 Comparison Through Author Association Distribution
+#### 3.2.2 Comparison Through Author Association Distribution
 
 ![image](https://github.com/anishapant21/PyTen-Bug-Fix-Analysis/blob/main/figure/disrt_AA_pt.png)
 
@@ -210,7 +210,7 @@ Average value for MTTF for MEMBER: **410 Days** <br/>
 It can be inferred from the data that issues originated from Member and  collaborator are given high precedence in both the projects and therefore have a shorter time to fix.
 
 
-### 3.2.3 Comparison Through Issues Labels
+#### 3.2.3 Comparison Through Issues Labels
 
 
 PyTorch             |  TensorFlow
@@ -219,7 +219,7 @@ PyTorch             |  TensorFlow
 
  The bar plot of labels of the issues reveals that PyTorch encountered and resolved 10 severity bugs in the system. The severity of the bugs directly correlates with the time of fixing the bug: the higher the severity, the more time is required for the bug to be fixed. It may be because of the intensity of the testing involved in the process. PyTorch uses a label called “high priority” to indicate the priority of the issues. In the case of TensorFlow, however, the higher the severity the lesser the time required to solve them. It implies that TensorFlow is more efficient with its high-severity bug fixes than PyTorch.
 
-### 3.2.4 Comparison Through Number of Comments and Number of Positive Reactions on the Issues
+#### 3.2.4 Comparison Through Number of Comments and Number of Positive Reactions on the Issues
 
 
 Comments             | Positive Reactions
