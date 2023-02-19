@@ -240,9 +240,9 @@ A graph of MTTF Vs. Number of Comments shows that, for both projects, as the num
 ## 4. How to run your code
 ```
 virtualenv env
-pip3 install -r requirement.txt 
-python extract_data.py
-jupyter-notebook data_analysis.ipynb
+pip3 install -r requirements.txt 
+jupyter-notebook PyTen_Data_Extraction.ipynb
+jupyter-notebook PyTen_Data_Analysis.ipynb
 ```
 
 ## 5. REFERENCES
