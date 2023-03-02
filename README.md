@@ -149,16 +149,16 @@ In highlighting the importance of positive reactions in the bug-fixing process, 
 
 ### 3.1 Exploratory Analysis (Data)
 
-| Comparison Parameters                           | PyTorch      | TensorFlow             |
+| Comparison Parameters(Last two years 2021-2023) | TensorFlow   | PyTorch                |
 |-------------------------------------------------|--------------|------------------------|
-| Total Number of Issues Closed in Last Two Years | 8223         | 8272                   |
+| Total Number of Issues Closed                   | 8223         | 8272                   |
 | Average Fix time per issue                      | 296 days     | 155 days               |
 | Average Comments Per Issue                      | 7.61         | 3.88                   |
 | Average Reaction Per Issue                      | 0.54         | 0.45                   |
-| Total Comments over two years                   | 62597        | 32136                  |
-| Total Reactions over two years                  | 4482         | 3754                   |
+| Total Comments                                  | 62597        | 32136                  |
+| Total Reactions                                 | 4482         | 3754                   |
 | Author Association for Least Number of Issues   | Collaborator | Member                 |
-| Author Association for Least Number of Issues   | None*        | None*                 |
+| Author Association for Most Number of Issues   | None*        | None*                 |
 | Most used labels                                | high priority      | stat:awaiting response |
 
 *: None implies independent github user
